@@ -1,12 +1,57 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <MenuItems :item="item"></MenuItems>
+<!--      <router-link to="/">Home</router-link> |-->
+<!--      <router-link to="/about">About</router-link>-->
     </div>
     <router-view/>
   </div>
 </template>
+
+<script>
+
+import MenuItems from '@/components/MenuItems.vue'
+
+export default {
+  name: 'Menu',
+  components: {
+    MenuItems
+  },
+  data () {
+    return {
+      item: {
+        name: 'Menu',
+        to: '',
+        children: [
+          {
+            name: 'Home',
+            to: '/'
+          },
+          {
+            name: 'Statistics',
+            to: '/statistics',
+            children: [
+              {
+                name: 'Mean',
+                to: '/statistics/mean'
+              }
+            ]
+          },
+          {
+            name: 'Data Science',
+            to: '/dataScience'
+          },
+          {
+            name: 'Data Engineering',
+            to: '/dataEngineering'
+          }
+        ]
+      }
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
