@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 12
+  pre_build:
+    commands:
+      - echo Entered the pre build phase...
+      - echo Build pre build started on `date`
+      - npm install
+      - echo Pre build finished on `date`
+  build:
+    commands:
+      - echo Entered the build phase...
+      - npm run build
+      - echo Build finished on `date`
+artifacts:
+  base-directory: dist
+  files:
+    -  '**/*'
+  name: jonnys-world-$(date +%Y-%m-%d)
