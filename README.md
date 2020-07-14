@@ -1,4 +1,4 @@
-# jonnys-world
+# Jonnys-World
 
 ## Project setup
 ```
