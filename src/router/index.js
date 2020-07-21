@@ -25,6 +25,11 @@ const routes = [
     component: () => import('../views/Statistics.vue')
   },
   {
+    path: '/statistics/deviations',
+    name: 'Deviations',
+    component: () => import('../views/Deviations.vue')
+  },
+  {
     path: '/statistics/mean',
     name: 'Mean',
     // component: () => import('../views/Mean.vue')

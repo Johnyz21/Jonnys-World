@@ -33,7 +33,12 @@ export default {
               {
                 name: 'Mean',
                 to: '/statistics/mean'
-              }, {
+              },
+              {
+                name: 'Deviations',
+                to: '/statistics/deviations'
+              },
+              {
                 name: 'Sampling',
                 to: '/statistics/sampling'
               }
