@@ -5,7 +5,9 @@
       <div class="row justify-content-center">
         <div class="col-11 col-md-10 ">
           <p>
-            Thought there was just one mean? Well you thought wrong! There are several types of means all with their own use case! Enjoy
+            Thought there was just one mean? Well you thought wrong! There are several types of means all with their own use case!
+            The mean is simply a measure of location, we use it to get a typical value! It's just a estimate of where most
+            of the data is located
           </p>
         </div>
       </div>
