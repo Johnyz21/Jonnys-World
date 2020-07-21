@@ -11,6 +11,14 @@
         </div>
       </div>
       <h1>My Journey</h1>
+      <hr>
+      <h2>Estimates of Location</h2>
+      <div class="row justify-content-center">
+        <div class="col-11 col-md-10">
+          <p>I started looking at getting a 'typical value' from a bunch of data. My beginings focused on looking at central
+          tendencies of data</p>
+        </div>
+      </div>
       <div class="row justify-content-center align-self-center">
         <router-link to="/statistics/mean">Mean</router-link>
         <br>
@@ -20,6 +28,29 @@
           <span></span>
           <span></span>
           <span></span>
+        </div>
+      </div>
+      <h2>Estimates of Variability</h2>
+      <div class="row justify-content-center">
+        <div class="col-11 col-md-10">
+          <p>I later looked at the spread/dispersion of data. How to measure it, reduce it and identify real from random
+            variablity
+          </p>
+        </div>
+      </div>
+      <div class="row justify-content-center align-self-center p-3">
+        <div class="arrow">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <h2>Distributions</h2>
+      <div class="row justify-content-center">
+        <div class="col-11 col-md-10">
+          <p>I later looked at the spread/dispersion of data. How to measure it, reduce it and identify real from random
+            variablity
+          </p>
         </div>
       </div>
       <div class="row justify-content-center align-self-center">
@@ -35,7 +66,9 @@ export default {
 }
 </script>
 <style lang="scss">
-
+  p {
+    text-align: left
+  }
   a {
     font-weight: bold;
     color: #DB995A;
