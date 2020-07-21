@@ -80,4 +80,7 @@ export default {
     }
   }
 }
+p {
+  text-align: left;
+}
 </style>

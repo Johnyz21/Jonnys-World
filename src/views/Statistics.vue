@@ -66,9 +66,6 @@ export default {
 }
 </script>
 <style lang="scss">
-  p {
-    text-align: left
-  }
   a {
     font-weight: bold;
     color: #DB995A;
