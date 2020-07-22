@@ -15,12 +15,23 @@
       <h2>Estimates of Location</h2>
       <div class="row justify-content-center">
         <div class="col-11 col-md-10">
-          <p>I started looking at getting a 'typical value' from a bunch of data. My beginings focused on looking at central
+          <p>I started looking at getting a 'typical value' from a bunch of data. My beginnings focused on looking at central
           tendencies of data</p>
         </div>
       </div>
       <div class="row justify-content-center align-self-center">
         <router-link to="/statistics/mean">Mean</router-link>
+        <br>
+      </div>
+      <div class="row justify-content-center align-self-center p-3">
+        <div class="arrow">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="row justify-content-center align-self-center">
+        <router-link to="/statistics/median">Median</router-link>
         <br>
       </div>
       <div class="row justify-content-center align-self-center p-3">
