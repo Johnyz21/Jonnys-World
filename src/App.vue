@@ -33,7 +33,12 @@ export default {
               {
                 name: 'Mean',
                 to: '/statistics/mean'
-              }, {
+              },
+              {
+                name: 'Deviations',
+                to: '/statistics/deviations'
+              },
+              {
                 name: 'Sampling',
                 to: '/statistics/sampling'
               }
@@ -74,5 +79,8 @@ export default {
       color: #42b983;
     }
   }
+}
+p {
+  text-align: left;
 }
 </style>

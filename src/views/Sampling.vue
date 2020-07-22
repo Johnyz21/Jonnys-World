@@ -159,7 +159,4 @@ export default {
 </script>
 
 <style>
-  p {
-    text-align: left;
-  }
 </style>
