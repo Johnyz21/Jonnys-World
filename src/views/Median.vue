@@ -28,8 +28,8 @@
             erroneous however they are often the result of bad data. <br>
             When our data is riddled with outliers the mean will be a bad estimate of location, whereas the median will
             still be valid. <br>
-            The mean isn't the only robust estimate. We often use the trimmed mean to avoid outliers too! It's often seen
-            as a compromise between the mean and median. It's calculated by cutting off the top bottom and top % of the data
+            The mean isn't the only robust estimate. We often use the <router-link to="/statistics/mean"> trimmed mean</router-link>
+            to avoid outliers too! It's often seen as a compromise between the mean and median as it's calculated by cutting off the top bottom and top % of the data
             then performing the mean
           </p>
         </div>
@@ -39,32 +39,32 @@
 </template>
 
 <script>
-  import { VueMathjax } from 'vue-mathjax'
-  export default {
-    components: {
-      'vue-mathjax': VueMathjax
-    },
-    name: 'Median',
-    mounted () {
-      const mathjaxCdn = document.createElement('script')
-      mathjaxCdn.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_HTML')
-      document.head.appendChild(mathjaxCdn)
+import { VueMathjax } from 'vue-mathjax'
+export default {
+  components: {
+    'vue-mathjax': VueMathjax
+  },
+  name: 'Median',
+  mounted () {
+    const mathjaxCdn = document.createElement('script')
+    mathjaxCdn.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_HTML')
+    document.head.appendChild(mathjaxCdn)
 
-      const mathjaxSettings = document.createElement('script')
-      mathjaxSettings.textContent = 'MathJax.Hub.Config({\n' +
-        '    tex2jax: {\n' +
-        '      inlineMath: [[\'$\',\'$\'],[\'\\\\(\',\'\\\\)\']],\n' +
-        '    }\n' +
-        '  });'
-      mathjaxSettings.type = 'text/x-mathjax-config'
-      document.head.appendChild(mathjaxSettings)
-    },
-    data () {
-      return {
+    const mathjaxSettings = document.createElement('script')
+    mathjaxSettings.textContent = 'MathJax.Hub.Config({\n' +
+      '    tex2jax: {\n' +
+      '      inlineMath: [[\'$\',\'$\'],[\'\\\\(\',\'\\\\)\']],\n' +
+      '    }\n' +
+      '  });'
+    mathjaxSettings.type = 'text/x-mathjax-config'
+    document.head.appendChild(mathjaxSettings)
+  },
+  data () {
+    return {
 
-      }
     }
   }
+}
 </script>
 <style lang="scss">
 
