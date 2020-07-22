@@ -36,6 +36,11 @@ const routes = [
     component: Mean
   },
   {
+    path: '/statistics/median',
+    name: 'Median',
+    component: () => import('../views/Median.vue')
+  },
+  {
     path: '/statistics/sampling',
     name: 'Sampling',
     component: () => import('../views/Sampling.vue')

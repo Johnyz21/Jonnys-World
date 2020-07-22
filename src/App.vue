@@ -35,6 +35,10 @@ export default {
                 to: '/statistics/mean'
               },
               {
+                name: 'Median',
+                to: '/statistics/median'
+              },
+              {
                 name: 'Deviations',
                 to: '/statistics/deviations'
               },
