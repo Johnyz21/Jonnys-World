@@ -34,9 +34,13 @@
       <div class="row justify-content-center">
         <div class="col-11 col-md-10">
           <p>I later looked at the spread/dispersion of data. How to measure it, reduce it and identify real from random
-            variablity
+            variability
           </p>
         </div>
+      </div>
+      <div class="row justify-content-center align-self-center">
+        <router-link to="/statistics/deviations">Deviations</router-link>
+        <br>
       </div>
       <div class="row justify-content-center align-self-center p-3">
         <div class="arrow">
