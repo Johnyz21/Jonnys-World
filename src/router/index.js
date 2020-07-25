@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import Mean from '../views/Mean.vue'
+import Home from '../views/statistics/Home.vue'
+import Mean from '../views/statistics/Mean.vue'
 
 Vue.use(VueRouter)
 
@@ -17,17 +17,17 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/statistics/About.vue')
   },
   {
     path: '/statistics',
     name: 'Statistics',
-    component: () => import('../views/Statistics.vue')
+    component: () => import('../views/statistics/Statistics.vue')
   },
   {
     path: '/statistics/deviations',
     name: 'Deviations',
-    component: () => import('../views/Deviations.vue')
+    component: () => import('../views/statistics/Deviations.vue')
   },
   {
     path: '/statistics/mean',
@@ -38,12 +38,12 @@ const routes = [
   {
     path: '/statistics/median',
     name: 'Median',
-    component: () => import('../views/Median.vue')
+    component: () => import('../views/statistics/Median.vue')
   },
   {
     path: '/statistics/sampling',
     name: 'Sampling',
-    component: () => import('../views/Sampling.vue')
+    component: () => import('../views/statistics/Sampling.vue')
   }
 ]
 
