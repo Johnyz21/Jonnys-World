@@ -28,7 +28,7 @@
         <div class="col-11 col-md-10 ">
           <p>
             The mean sounds great, but imagine we had some outliers. Consider the set {3,5,4,6,7,8,9,1000,2,1} where
-            each value represents a judges rating in a dance competition. We can clearly see one of the judges is biased,
+            each value represents a judge's rating in a dance competition. We can clearly see one of the judges is biased,
             so would a mean score of 104.5 seem fair? Wouldn't it be great if we could get rid of outliers? <br> <br>
             A variation of the mean is called the trimmed mean which is calculated by sorting the set, then dropping a
             fixed amount of numbers from either end. Let <vue-mathjax :formula="x_values"></vue-mathjax> represent the
@@ -45,10 +45,10 @@
           <p>
             Another mean?! Why? Well the weighted mean is used when specific values have more 'weight' to them. Confused?
             An example should help remedy that confusion. <br>
-            Imagine a tennis match has just taken place and several pundits have commented on the match. Let's say the
-            first two pundits are ex-professional players, the next two were county players and the final two don't even
-            know the game (they're here for a pay check). Do you think each of pundits reviews on the game should be
-            equal / bare the same weight ? Neither do. Thus we add weights! Lets say the scores of the pundits are
+            Imagine a tennis match has just taken place and several pundits' have commented on the match. Let's say the
+            first two pundits' are ex-professional players, the next two were county players and the final two don't even
+            know the game (they're here for a pay cheque). Do you think each of pundits reviews on the game should be
+            equal / bear the same weight ? Neither do. Thus we add weights! Let's say the scores of the pundits' are
             {8,8,6,6,3,2} and the weight for each pundit is {4,4,2,2,1,1} our weighted mean is
             <vue-mathjax :formula="weighted_mean_example"></vue-mathjax> as opposed to a population mean
             of 5.5. The formula for the weighted mean is: <vue-mathjax :formula="weighted_mean"></vue-mathjax>
