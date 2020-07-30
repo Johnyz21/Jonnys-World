@@ -44,6 +44,11 @@ const routes = [
     path: '/statistics/sampling',
     name: 'Sampling',
     component: () => import('../views/statistics/Sampling.vue')
+  },
+  {
+    path: '/sound',
+    name: 'Sound',
+    component: () => import('../views/sound/SoundChannels.vue')
   }
 ]
 
