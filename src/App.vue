@@ -55,6 +55,10 @@ export default {
           {
             name: 'Data Engineering',
             to: '/dataEngineering'
+          },
+          {
+            name: 'Sound',
+            to: '/sound'
           }
         ]
       }
