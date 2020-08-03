@@ -21,6 +21,9 @@
         </div>
       </div>
       <div class="row justify-content-center">
+        <div class="col-11 col-md-10">
+          <small style="color: orangered">*Examples do not work on an iPhone, Safari or IE due to lack of support for Web Audio Api *</small>
+        </div>
         <div class="col-11 col-md-10 ">
           <button v-on:click="startAudioStream">Record</button>
           <button v-on:click="stopAudioStream">Stop recording</button>
@@ -73,13 +76,13 @@
             <vue-mathjax :formula="dft_formula"></vue-mathjax>
             <vue-mathjax formula="$$\textbf{ F = D f }$$"></vue-mathjax>
             Where <vue-mathjax formula="$ F[N] $"></vue-mathjax> is the fourier transform for the sequence <vue-mathjax formula="$ f[N] $"></vue-mathjax>
-            and <vue-mathjax formula="$ W=e^{ \frac{-2\pi i}{N}}$"></vue-mathjax> <br>
+            and <vue-mathjax formula="$ W=e^{ \frac{2\pi i}{N}}$"></vue-mathjax> <br>
             Looks like a lot but let's explain what everything means. <br>
             We've already seen <strong>f</strong>, this is the sample in columnar format. <strong>D</strong> is the DFT matrix and
             <strong>F </strong> is the DFT of the sample.
             <br>
-            So the only thing we don't know about is<strong>D</strong>, let's look at it in more detail<br> <br>
-            What's this W thing? W is what we call a complex number but more importantly it's a special kind which we
+            We've already looked at the input (<strong>f</strong>, sound represented digitally) and output (<strong>F</strong>, the frequency graph), now let's take a nose dive into understanding <strong>D</strong> <br>
+            Firstly let's break down this W thing. W is what we call a complex number but more importantly it's a special kind which we
             call a root of unity. What's a root of unity? A root of unity is any complex number which, when raised to any positive
             power n equals 1. So aren't we just multiplying by a matrix of 1's? Nope! Remember complex numbers have real and imaginary parts
             and (using Eulers' Formula) we'll see the real parts relate to cosine waves and the imaginary parts relate to sine waves.<br>
@@ -89,8 +92,8 @@
             all we're doing is multiplying our samples by a bunch of sines and cosines? Awesome, now let's look at this roots of Unity business <br>
             Let's look at the definition of 1 in terms of sines, cosines and exponentials. Let N=-1 we can see that <vue-mathjax formula="$$ e^{2\pi i}= cos(2\pi i) + isin(2\pi i)=1 $$"></vue-mathjax>
             Now let's say we wanted to find all the roots of 1, for every integer k we can write
-            <vue-mathjax formula="$$ 1^{\frac{k}{N}}=e^{ \frac{2\pi i k}{N}}= cos(\frac{2\pi i k}{N}) + isin(\frac{2\pi i k}{N}) = W^{k}$$"></vue-mathjax>
-
+            <vue-mathjax formula="$$ 1^{\frac{k}{N}}=e^{ \frac{2\pi i k}{N}}= cos(\frac{2\pi i k}{N}) + isin(\frac{2\pi i k}{N}) = W^{k}$$"></vue-mathjax> <br>
+            It should now be apparent that <strong>D</strong> is a matrix of roots of unities <strong>W</strong>, which we use to computer the fourier transform of <strong>f</strong> into <strong>F</strong>
 <!--            <br>Suppose we have the following sample <br>-->
 <!--            {{sample}}, so we have N={{ sample_length }}-->
 <!--            {{ sample_head }}-->
@@ -245,7 +248,7 @@ export default {
     }
   },
   created: function () {
-    var w = math.exp(math.divide(math.multiply(-2, math.pi, math.i), this.sample.length))
+    var w = math.exp(math.divide(math.multiply(2, math.pi, math.i), this.sample.length))
     this.w = w
     this.dft_matrix = math.ones(this.sample.length, this.sample.length).map(function (value, index, matrix) {
       return w.pow(math.multiply(index[0] - 1, index[1] - 1))
