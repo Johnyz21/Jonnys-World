@@ -41,6 +41,16 @@ const routes = [
     path: '/sound',
     name: 'Sound',
     component: () => import('../views/sound/SoundChannels.vue')
+  },
+  {
+    path: '/data-science',
+    name: 'Data Science',
+    component: () => import('../views/dataScience/DataScience.vue')
+  },
+  {
+    path: '/data-science/linear-regression',
+    name: 'Linear Regression',
+    component: () => import('../views/dataScience/LinearRegression.vue')
   }
 ]
 

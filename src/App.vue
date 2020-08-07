@@ -50,7 +50,13 @@ export default {
           },
           {
             name: 'Data Science',
-            to: '/dataScience'
+            to: '/data-science',
+            children: [
+              {
+                name: 'Linear Regression',
+                to: '/data-science/linear-regression'
+              }
+            ]
           },
           {
             name: 'Data Engineering',
