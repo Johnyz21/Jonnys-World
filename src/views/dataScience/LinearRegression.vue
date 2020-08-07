@@ -109,16 +109,19 @@
       <div class="row justify-content-center">
         <div class="col-11 col-md-10">
           <p>
-            Wrong. We've assumed a lot throughout this whole process. We've assumed
+            Wrong. What's to say that another sample set of data would give us the same <vue-mathjax formula="$ \beta $"></vue-mathjax> values?
+            We could have hundreds of different samples, each giving us a different <vue-mathjax formula="$ \beta $"></vue-mathjax> values. So we've got to
+            create a confidence interval for our <vue-mathjax formula="$ \beta $"></vue-mathjax>'s. <br>
+            We've assumed a lot throughout this whole process. We've assumed
           </p>
-          <ol>
+          <ul class="text-left">
             <li>Linearity</li>
             <li>Constant variance</li>
             <li>Independent error terms</li>
             <li>Normal Errors</li>
             <li>No multi-colinearity</li>
             <li>Exogenity</li>
-          </ol>
+          </ul>
           <p>
             I may cover these later but i feel like this should be enough to get you going!
           </p>
