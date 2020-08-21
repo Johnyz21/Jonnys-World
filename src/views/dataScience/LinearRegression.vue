@@ -61,7 +61,7 @@
         <div class="col-11 col-md-10 ">
 <!--          The thought pattern which goes behind RSS is reducing the error between an actual value and our predicted value.-->
           <p>
-            RSS is all about calculating the average lack of fit. It does this by calculating the difference between between an actual value and its predicted value. We can write this mathematically as
+            RSS is all about calculating the average lack of fit (a measure of variance for our regression). It does this by calculating the difference between between an actual value and its predicted value. We can write this mathematically as
             <vue-mathjax formula="$$ RSS = \sum_{i=1}^{N} (y_i-f(x_i))^2 $$"></vue-mathjax>
             here <vue-mathjax formula="$ y_i - \hat y_i = e_i $"></vue-mathjax> is the <i>i</i>th error term which is squared to handle negative values. Another way to view the RSS is:
             <vue-mathjax formula="$$ RSS = \sum_{i=1}^{N} e_i^2 $$"></vue-mathjax>
@@ -124,6 +124,64 @@
           </ul>
           <p>
             I may cover these later but i feel like this should be enough to get you going!
+          </p>
+        </div>
+      </div>
+      <h2>We've got the coefficients, but is there really a relationship between Y and every feature?</h2>
+      <div class="row justify-content-center">
+        <div class="col-11 col-md-10">
+          <p>
+            All this time we've assumed our features have a relationship. But what if none of them do?
+            What if <vue-mathjax formula="$ \beta_0=\beta_1=...=\beta_j=0 $"></vue-mathjax>?
+            To test if the coefficients of ALL the dummy variables can all be set to zero we use create a null hypothesis test where we use the F statistic! <br>
+            To understand the intuition behind F statistic we need to understand a few things: <br>
+            An unbiased estimate for the variance <vue-mathjax formula="$ \sigma^2$"></vue-mathjax> we use the formula
+            <vue-mathjax formula="$$ \sigma^2 = \frac{1}{N - p - 1} \sum_{i=1}^N (y_i - \hat y_i)^2 $$"></vue-mathjax>
+            where <vue-mathjax formula="$ N-P-1$"></vue-mathjax> represents the degrees of freedom. <br>
+            The RSS is a measurement which tells us the amount of <strong>variance which is not explained</strong> by the regression.
+            <vue-mathjax formula="$$ RSS = \sum_{i=1}^{N} (y_i-\hat y_i)^2 $$"></vue-mathjax>
+            The TSS is a measure which tells us the total amount of <strong>variance in the data set before</strong> regression.
+            <vue-mathjax formula="$$ TSS = \sum_{i=1}^{N} (y_i-\bar y)^2 $$"></vue-mathjax>
+            Therefore TSS-RSS tells us the amount of <strong>variance explained by the regression.</strong> <br>
+            Now how could this be helpful? Have a little think about what we're doing. Variance is the measure of the spread of data. Currently we have a measure for the spread
+            of our data before and after we plot our least squares regression. Now remember what least squares regression does. We try to reduce our reduce our error terms given by the RSS,
+            by doing this we also reduce our spread of data from the mean! What does this mean? Well all along we've essentially plotted a line/plane in an attempt to reduce our variance! Don't believe me? Have another lookat the equations
+            aforementioned till this clicks. <br>
+            With this knowledge at hand, if we were to compare the <strong>variance explained by the regression</strong> and the <strong>variance which is not explained</strong>
+            what would we expect to get? Assuming there is NO relationship between the response and the predictors we'd expect these values to be fairly similar.
+            However if there is a relationship we would expect the variance explained by the regression to be much higher than the variance which is not explained by the regression.
+            So essentially we want to understand the result of <vue-mathjax formula="$ \frac{ \text{variance explained by the regression}}{ \text{variance which is not explained by the regression}}$"></vue-mathjax> <br>
+            Now let's do some math to show this! <br>
+            We assume the correct model is linear. We assume the deviations of Y are gaussian (normally distributed) and additive,
+            <vue-mathjax formula="$ \epsilon \sim N(0,\sigma^2) $"></vue-mathjax>. Our null hypothesis is,
+            <vue-mathjax formula=" $$ H_0 : \beta_0=\beta_1=...=\beta_j=0 $$ "></vue-mathjax>
+            versus our alternative
+            <vue-mathjax formula=" $$ H_a : \text{At least one } \beta_j \text{ is zero} $$ "></vue-mathjax>
+            We perform the hypothesis test by computing the F statistic
+            <vue-mathjax formula="$$ F = \frac{(TSS - RSS)/p}{RSS/(n-p-1)} $$"></vue-mathjax>
+            Thus we can show that
+            <vue-mathjax formula="$$ E\{RSS/(n-p-1)\}  = \sigma^2 $$"></vue-mathjax>
+            and provided <vue-mathjax formula="$ H_0 $"></vue-mathjax> is true
+            <vue-mathjax formula="$$ E\{(TSS-RSS)/(n-p-1 - (n - 1))\}  = E\{(TSS-RSS)/p\} = \sigma^2 $$"></vue-mathjax>
+            Hence when there is no relationship between the response and predictor we would expect the F-statistic to take on a value close to 1 (variance explained by the regression <vue-mathjax formula="$ \approx $"></vue-mathjax>  variance which is not explained). However if
+            <vue-mathjax formula="$ H_a $"></vue-mathjax> is true then  <vue-mathjax formula="$ E\{(TSS-RSS)/p\} > \sigma^2 $"></vue-mathjax> (variance explained by the regression >  variance which is not explained)
+            so we expect F to be greater than 1.
+          </p>
+        </div>
+      </div>
+      <h2> Just about how accurate is our model?</h2>
+      <div class="row justify-content-center">
+        <div class="col-11 col-md-10">
+          <p>
+            Remember the TSS-RSS from the previous section? We can express this as a more meaningful
+            value, as a fraction between 0 and 1. This actually has a special name called the <vue-mathjax formula="$ R^2 $"></vue-mathjax> statistic.
+            <vue-mathjax formula="$$ R^2 = \frac{TSS-RSS}{TSS} = 1 - \frac{RSS}{TSS} $$"></vue-mathjax>
+            An <vue-mathjax formula="$ R^2 $"></vue-mathjax> statistic close to 1 tells us that a large proportion of the variability in the response
+            has been explained by the regression. A number near 0 indicates that the regression didn't explain much of the variability. <br>
+            Don't let this fool you, it's hard to know what a good <vue-mathjax formula="$ R^2 $"></vue-mathjax> is! Remember we've assumed the true relationship is linear
+            model, but what if it isn't? If that's the case we would expect our residual errors to be bigger. If the residual errors are bigger then our
+            RSS will also be bigger so our value for <vue-mathjax formula="$ R^2 $"></vue-mathjax> will be smaller! Thus for a relationship that isn't
+            truly linear we would expect a small <vue-mathjax formula="$ R^2 $"></vue-mathjax> value as only a small proportion of the variance in Y is explained by the predictors, X. <br>
           </p>
         </div>
       </div>
