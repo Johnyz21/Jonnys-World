@@ -101,13 +101,44 @@
             Thus we can conclude that if we find where our derivative is 0 we can find the minimum point and solve for when <vue-mathjax formula="$ \beta = \hat \beta  $"></vue-mathjax>.
             <vue-mathjax formula="$$ 0 = X^T(y-X\hat\beta) $$"></vue-mathjax>
             <vue-mathjax formula="$$ 0 = X^Ty-X^TX\hat\beta $$"></vue-mathjax>
-            <vue-mathjax formula="$$ X^TX\hat\beta = X^Ty $$"></vue-mathjax>
+            <vue-mathjax formula="$$ \begin{equation} X^TX\hat\beta = X^Ty \end{equation} $$"></vue-mathjax>
             <vue-mathjax formula="$$ \hat\beta = {(X^TX)}^{-1}X^Ty $$"></vue-mathjax>
             Therefore we have the values we needed for the beta matrix! And we've solved our linear regression problem!
             <vue-mathjax formula="$$ \hat Y = X^T \hat\beta = X{(X^TX)}^{-1}X^Ty $$"></vue-mathjax>
             Or have we? In the real world we can't make the assumption that X has full column rank. Therefore our matrix <vue-mathjax formula="$ X^TX $"></vue-mathjax> is not positive definite, as we can only assume that
             <vue-mathjax formula="$ X^TX \ge 0$"></vue-mathjax>. So what do we do? <br>
             In the real world most algorithms detect if X is linearly dependant. If it is they rewrite X or simply drop the linearly dependent columns. <br>
+          </p>
+        </div>
+      </div>
+      <h2>What can we say about <vue-mathjax formula="$ \hat\beta $"></vue-mathjax></h2>
+      <div class="row justify-content-center">
+        <div class="col-11 col-md-10 ">
+          <p>
+            Based on how we've calculated <vue-mathjax formula="$ \beta $"></vue-mathjax> some useful properties come to light! These properties don't
+            depend on any assumptions - they'll always be true as long as we minimise our sum of squared errors using a technique similar to the above. <br>
+            Recall equation (1) from above:
+            <vue-mathjax formula="$$ X^TX\hat\beta = X^Ty $$"></vue-mathjax>
+            we substitute <vue-mathjax formula="$ y = X\hat\beta + e $"></vue-mathjax>
+            <vue-mathjax formula="$$ X^TX\hat\beta = X^T(X\hat\beta + e) $$"></vue-mathjax>
+            <vue-mathjax formula="$$ X^TX\hat\beta = X^TX\hat\beta + X^Te $$"></vue-mathjax>
+            <vue-mathjax formula="$$ 0 = X^Te $$"></vue-mathjax>
+          </p>
+          <ol>
+            <li>The observed values of X are uncorrelated with the residuals.</li>
+            <li>The sum of the residuals is zero.</li>
+            <li>The sample mean of the residuals is zero.</li>
+            <li>The regression hyperplane passes through the means of the observed values (X
+              and y).</li>
+            <li>The predicted values of y are uncorrelated with the residuals.</li>
+            <li>The mean of the predicted Y’s for the sample will equal the mean of the observed
+              Y’s i.e. yˆ = y.</li>
+          </ol>
+          <p>
+            Note that we know nothing about βˆ except that it satisfies all of the properties discussed above.
+            We need to make some assumptions about the true model in order to make any inferences regarding
+            β (the true population parameters) from βˆ (our estimator of the true parameters). Recall that βˆ
+            comes from our sample, but we want to learn about the true parameters.
           </p>
         </div>
       </div>
@@ -201,7 +232,7 @@ export default {
   components: {
     'vue-mathjax': VueMathjax
   },
-  name: 'Linear Regression',
+  name: 'LinearRegression',
   mounted () {
     const mathjaxCdn = document.createElement('script')
     mathjaxCdn.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_HTML')
@@ -209,6 +240,9 @@ export default {
 
     const mathjaxSettings = document.createElement('script')
     mathjaxSettings.textContent = 'MathJax.Hub.Config({\n' +
+      '  TeX: {\n' +
+      '    equationNumbers: { autoNumber: "ams" } ' +
+      '  },\n' +
       '    tex2jax: {\n' +
       '      inlineMath: [[\'$\',\'$\'],[\'\\\\(\',\'\\\\)\']],\n' +
       '    }\n' +
