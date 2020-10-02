@@ -27,11 +27,10 @@
         </div>
       </div>
       <hr>
-      <h1>Inflexible Superverised Learning techniques</h1>
-      <h2>Linear Regression</h2>
+      <h1>Supervised Learning techniques</h1>
       <div class="row justify-content-center">
         <div class="col-11 col-md-10">
-          <p>I started looking at linear estimations for predicting a qualitative response.</p>
+          <p class="text-center">I started looking at linear estimations for predicting a qualitative response.</p>
         </div>
       </div>
       <div class="row justify-content-center align-self-center">
