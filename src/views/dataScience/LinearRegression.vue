@@ -49,6 +49,8 @@
           </p>
           <ul class="text-left">
             <li>p is the number of predictors</li>
+            <li> <vue-mathjax formula="$\beta $"></vue-mathjax> is a p x K matrix of coefficients we are trying to predict</li>
+            <li> <vue-mathjax formula="$\hat \beta $"></vue-mathjax> is a p x K matrix of coefficients of predictions for <vue-mathjax formula="$\beta $"></vue-mathjax></li>
             <li> <vue-mathjax formula="$\hat Y$"></vue-mathjax> is a K-vector of predictions</li>
             <li>In the (p+1)-dimensional space. <vue-mathjax formula="$ (X,\hat Y)$ "></vue-mathjax> represents a hyperplane. (e.g. If p was 1, we'd be in 2D and the hyperplane would be a line)</li>
             <ul>
@@ -101,7 +103,7 @@
             Thus we can conclude that if we find where our derivative is 0 we can find the minimum point and solve for when <vue-mathjax formula="$ \beta = \hat \beta  $"></vue-mathjax>.
             <vue-mathjax formula="$$ 0 = X^T(y-X\hat\beta) $$"></vue-mathjax>
             <vue-mathjax formula="$$ 0 = X^Ty-X^TX\hat\beta $$"></vue-mathjax>
-            <vue-mathjax formula="$$ X^TX\hat\beta = X^Ty $$"></vue-mathjax>
+            <vue-mathjax formula="$$ \begin{equation} X^TX\hat\beta = X^Ty \end{equation} $$"></vue-mathjax>
             <vue-mathjax formula="$$ \hat\beta = {(X^TX)}^{-1}X^Ty $$"></vue-mathjax>
             Therefore we have the values we needed for the beta matrix! And we've solved our linear regression problem!
             <vue-mathjax formula="$$ \hat Y = X^T \hat\beta = X{(X^TX)}^{-1}X^Ty $$"></vue-mathjax>
@@ -111,26 +113,93 @@
           </p>
         </div>
       </div>
+      <h2>What can we say about <vue-mathjax formula="$ \hat\beta $"></vue-mathjax></h2>
+      <div class="row justify-content-center">
+        <div class="col-11 col-md-10 ">
+          <p>
+            Based on how we've calculated <vue-mathjax formula="$ \beta $"></vue-mathjax> some useful properties come to light! These properties don't
+            depend on any assumptions - they'll always be true as long as we minimise our sum of squared errors using a technique similar to the above. <br>
+            Recall equation (1) from above:
+            <vue-mathjax formula="$$ X^TX\hat\beta = X^Ty $$"></vue-mathjax>
+            we substitute <vue-mathjax formula="$ y = X\hat\beta + e $"></vue-mathjax>
+            <vue-mathjax formula="$$ X^TX\hat\beta = X^T(X\hat\beta + e) $$"></vue-mathjax>
+            <vue-mathjax formula="$$ X^TX\hat\beta = X^TX\hat\beta + X^Te $$"></vue-mathjax>
+            <vue-mathjax formula="$$ 0 = X^Te $$"></vue-mathjax>
+            We can view  <vue-mathjax formula="$ X^Te $"></vue-mathjax> as
+            <vue-mathjax formula="$$
+                                    \begin{pmatrix}
+                                    x_{11} & x_{12} & \cdots & x_{1K} \\
+                                    x_{21} & x_{22} & \cdots & x_{2K} \\
+                                    \vdots & \vdots & \cdots & \vdots \\
+                                    x_{p1} & x_{p2} & \cdots & x_{pK} \\
+                                    \end{pmatrix}
+                                    \begin{pmatrix}
+                                    e_{1} \\
+                                    e_{2} \\
+                                    \vdots \\
+                                    e_{p} \\
+                                    \end{pmatrix}
+                                    =
+                                    \begin{pmatrix}
+                                    x_{11} \cdot e_{1} + x_{12} \cdot e_2 + \cdots + x_{1K} \cdot e_{p} \\
+                                    x_{21} \cdot e_{1} + x_{21} \cdot e_2 + \cdots + x_{2K} \cdot e_{p} \\
+                                    \vdots  \\
+                                    x_{p1} \cdot e_{1} + x_{p2} \cdot e_2 + \cdots + x_{pK} \cdot e_{p} \\
+                                    \end{pmatrix}
+                                    =
+                                    \begin{pmatrix}
+                                    0 \\
+                                    0 \\
+                                    \vdots  \\
+                                    0 \\
+                                    \end{pmatrix}
+            $$"></vue-mathjax>
+          </p>
+          <p>From this we can conclude the following statements about <vue-mathjax formula="$ \beta $"></vue-mathjax> to be true</p>
+          <ul class="text-left">
+            <li>The observed values of X are uncorrelated with the residuals.</li>
+            <li>The sum of the residuals is zero.</li>
+            <li>The sample mean of the residuals is zero.</li>
+            <li>The regression hyperplane passes through the means of the observed values (X
+              and y).</li>
+            <li>The predicted values of y are uncorrelated with the residuals.</li>
+            <li>The mean of the predicted Y’s for the sample will equal the mean of the observed
+              Y’s i.e. yˆ = y.</li>
+          </ul>
+          <p>
+            Note that we know nothing about <vue-mathjax formula="$ \hat\beta $"></vue-mathjax> except that it satisfies all of the properties discussed above.
+            We need to make some assumptions about the true model in order to make any inferences regarding
+            <vue-mathjax formula="$ \beta $"></vue-mathjax> (the true population parameters) from <vue-mathjax formula="$ \hat\beta $"></vue-mathjax>
+            (our estimator of the true parameters). Recall that <vue-mathjax formula="$ \hat\beta $"></vue-mathjax>
+            comes from our sample, but we want to learn about the true parameters. <br>
+          </p>
+        </div>
+      </div>
       <h2>We're done right?</h2>
       <div class="row justify-content-center">
         <div class="col-11 col-md-10">
           <p>
-            Wrong. What's to say that another sample set of data would give us the same <vue-mathjax formula="$ \beta $"></vue-mathjax> values?
-            We could have hundreds of different samples, each giving us a different <vue-mathjax formula="$ \beta $"></vue-mathjax> values. So we've got to
-            create a confidence interval for our <vue-mathjax formula="$ \beta $"></vue-mathjax>'s. <br>
-            We've assumed a lot throughout this whole process. We've assumed
+            Wrong. What's to say that another sample set of data would give us a better estimate of <vue-mathjax formula="$ \beta $"></vue-mathjax>?
+            We could have hundreds of different samples, each giving us a different estimate for <vue-mathjax formula="$ \beta $"></vue-mathjax>. So
+            how do we know when to stop? We've got to create a confidence interval for our <vue-mathjax formula="$ \hat \beta $"></vue-mathjax>'s. <br>
+            In order to say we have the Best Linear Unbiased Estimator (BLUE) we will have to use the Gauss Markov Theorem.
+          </p>
+        </div>
+      </div>
+      <h2>Gauss Markov</h2>
+      <div class="row justify-content-center">
+        <div class="coll-11 col-md-10">
+          <p>
+            The Gauss Markov Theorem tells us that there will be NO other linear and unbiased estimator of the coefficients of <vue-mathjax formula="$ \beta $"></vue-mathjax>
+            that has the smaller sampling variance. So basically we've got the Best Linear Unbiased Estimator (BLUE). <br>
+            This is only true if we adhere to the following assumptions:
           </p>
           <ul class="text-left">
-            <li>Linearity</li>
-            <li>Constant variance</li>
-            <li>Independent error terms</li>
-            <li>Normal Errors</li>
-            <li>No multi-colinearity</li>
-            <li>Exogenity</li>
+            <li>There's a linear relationship between y and X</li>
+            <li>X has full rank (X is linearly independent, no  collinearity)</li>
+            <li>The error terms are uncorrelated (Time Series data often breaks this assumptions)</li>
+            <li>The error terms have constant variance (Assuming homoskedasticity and no autocorrelation)</li>
           </ul>
-          <p>
-            I may cover these later but i feel like this should be enough to get you going!
-          </p>
         </div>
       </div>
       <h2>We've got the coefficients, but is there really a relationship between Y and every feature?</h2>
@@ -201,7 +270,7 @@ export default {
   components: {
     'vue-mathjax': VueMathjax
   },
-  name: 'Linear Regression',
+  name: 'LinearRegression',
   mounted () {
     const mathjaxCdn = document.createElement('script')
     mathjaxCdn.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_HTML')
@@ -209,6 +278,9 @@ export default {
 
     const mathjaxSettings = document.createElement('script')
     mathjaxSettings.textContent = 'MathJax.Hub.Config({\n' +
+      '  TeX: {\n' +
+      '    equationNumbers: { autoNumber: "ams" } ' +
+      '  },\n' +
       '    tex2jax: {\n' +
       '      inlineMath: [[\'$\',\'$\'],[\'\\\\(\',\'\\\\)\']],\n' +
       '    }\n' +
