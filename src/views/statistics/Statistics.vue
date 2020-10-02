@@ -15,7 +15,7 @@
       <h2>Estimates of Location</h2>
       <div class="row justify-content-center">
         <div class="col-11 col-md-10">
-          <p>I started looking at getting a 'typical value' from a bunch of data. My beginnings focused on looking at central
+          <p class="text-center">I started looking at getting a 'typical value' from a bunch of data. My beginnings focused on looking at central
           tendencies of data</p>
         </div>
       </div>
@@ -44,7 +44,7 @@
       <h2>Estimates of Variability</h2>
       <div class="row justify-content-center">
         <div class="col-11 col-md-10">
-          <p>I later looked at the spread/dispersion of data. How to measure it, reduce it and identify real from random
+          <p class="text-center">I later looked at the spread/dispersion of data. How to measure it, reduce it and identify real from random
             variability
           </p>
         </div>
@@ -63,7 +63,7 @@
       <h2>Distributions</h2>
       <div class="row justify-content-center">
         <div class="col-11 col-md-10">
-          <p>I later looked at the spread/dispersion of data. How to measure it, reduce it and identify real from random
+          <p class="text-center">I later looked at the spread/dispersion of data. How to measure it, reduce it and identify real from random
             variablity
           </p>
         </div>
