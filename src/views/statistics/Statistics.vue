@@ -10,7 +10,51 @@
          </p>
         </div>
       </div>
+      <h2>What is Statistics?</h2>
+      <div class="row justify-content-center">
+        <div class="col-11 col-md-10">
+          <p>
+            Statistics is all about <b>collecting</b>, <b>analysing</b> and <b> presenting numerical data! </b> Want to know
+            something about data? Well then turn to stats! <br>
+            There's two types of statistics. <b> Inferential statistics </b> and <b> Descriptive statistics. </b>
+            Descriptive statistics is used to summarise and analyse data about a <b>population</b>. <b>Inferential statistics</b> is
+            used to analyse  and summarise data about a <b>sample of our population</b>, we then use this inference to conclude
+            information about our population. Confused? Let's make it a bit clearer <br>
+            Suppose you collected information about 7 billion people in the world and you wanted to know the average
+            height of women. We'd calculate the mean height of women (using descriptive statistics)... seems easy right? Wrong.
+            You may of overlooked one thing.<br>
+            How will we gather information about 7 billion people in the world? People are born and die to
+            fast for us to ever count and collect that data. Peoples heights ALSO vary throughout life! There's no way to
+            keep up with this.
+            So how on Earth can we calculate statistics about our population if we can't gain the information
+            about our population? <br>
+            We can only collect data about part of our population and we can use that to infer statistical properties
+            about the total population. This is inferential statistics. <br>
+            We use inferential statistics if we are operating on a sample of our population. We use descriptive statistics
+            when we are operating on our entire population.<br>
+            There's different philosophies about how to do inferential statistics, both we merits and demerits. The two
+            philosophies are called <b>Frequentist Statistics</b> and <b>Baysian Statistics</b>. <br>
+            Both Baysians and Frequentist agree that Baysian methods are accurate if we know the true population. The
+            difference lies in generating statistics based off a sample. <br>
+            Baysians have an initial belief (in terms of probability, a prior) about a hypothesis, they then update their
+            belief with data. Baysians conclude their inference in terms of subjective uncertainty. They can say
+            things such as 'There is a 95% chance that x exists within a certain interval'<br>
+            Frequentist don't have an initial belief. They use repeated samples of data to make predictions. Frequentists
+            conclude information in terms of samples. They say things such as '95% of similar sized intervals from
+            repeated samples of n will container x' <br>
+            There's a great paper <a href="http://www-math.mit.edu/~dav/05.dir/class20-prep.pdf">here</a> on the differences
+          </p>
+        </div>
+      </div>
       <h1>My Journey</h1>
+      <div class="row justify-content-center">
+        <div class="col-11 col-md-10">
+          <p>
+            The below details some of the notes during my journey to understand statistics. After i was comfortable
+          with the below i moved to understanding <router-link to="/data-science">Data Science</router-link>
+          </p>
+        </div>
+      </div>
       <hr>
       <h2>Estimates of Location</h2>
       <div class="row justify-content-center">
