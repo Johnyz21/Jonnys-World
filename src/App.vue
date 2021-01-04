@@ -1,73 +1,94 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <MenuItems :item="item"></MenuItems>
+    <div class="container-fluid">
+      <div class="row">
+        <Burger></Burger>
+      </div>
+      <div class="row">
+          <Sidebar>
+            <div v-for="(link,id) in links"
+                 :key="id"
+                 :links="link">
+              <MenuItems :link="link"></MenuItems>
+            </div>
+          </Sidebar>
+        <router-view class="col"/>
+      </div>
     </div>
-    <router-view/>
   </div>
 </template>
 
 <script>
 
-import MenuItems from '@/components/MenuItems.vue'
+import MenuItems from '@/components/Menu/MenuItems.vue'
+import Burger from '@/components/Menu/Burger.vue'
+import Sidebar from '@/components/Menu/Sidebar.vue'
 
 export default {
   name: 'Menu',
   components: {
-    MenuItems
+    MenuItems,
+    Burger,
+    Sidebar
   },
   data () {
     return {
-      item: {
-        name: 'Menu',
-        to: '',
-        children: [
-          {
-            name: 'Home',
-            to: '/'
-          },
-          {
-            name: 'Statistics',
-            to: '/statistics',
-            children: [
-              {
-                name: 'Mean',
-                to: '/statistics/mean'
-              },
-              {
-                name: 'Median',
-                to: '/statistics/median'
-              },
-              {
-                name: 'Deviations',
-                to: '/statistics/deviations'
-              },
-              {
-                name: 'Sampling',
-                to: '/statistics/sampling'
-              }
-            ]
-          },
-          {
-            name: 'Data Science',
-            to: '/data-science',
-            children: [
-              {
-                name: 'Linear Regression',
-                to: '/data-science/linear-regression'
-              }
-            ]
-          },
-          {
-            name: 'Data Engineering',
-            to: '/dataEngineering'
-          },
-          {
-            name: 'Sound',
-            to: '/sound'
-          }
-        ]
-      }
+      links: [
+        {
+          id: 1,
+          title: 'Home',
+          to: '/'
+        },
+        {
+          id: 2,
+          title: 'Statistics',
+          to: '/statistics',
+          children: [
+            {
+              id: 2.1,
+              title: 'Mean',
+              to: '/statistics/mean'
+            },
+            {
+              id: 2.2,
+              title: 'Median',
+              to: '/statistics/median'
+            },
+            {
+              id: 2.3,
+              title: 'Deviations',
+              to: '/statistics/deviations'
+            },
+            {
+              id: 2.4,
+              title: 'Sampling',
+              to: '/statistics/sampling'
+            }
+          ]
+        },
+        {
+          id: 3,
+          title: 'Data Science',
+          to: '/data-science',
+          children: [
+            {
+              id: 3.1,
+              title: 'Linear Regression',
+              to: '/data-science/linear-regression'
+            }
+          ]
+        },
+        {
+          id: 4,
+          title: 'Data Engineering',
+          to: '/dataEngineering'
+        },
+        {
+          id: 5,
+          title: 'Sound',
+          to: '/sound'
+        }
+      ]
     }
   }
 }
@@ -82,19 +103,8 @@ export default {
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-p {
-  text-align: left;
+.router-link-active {
+  color: black;
+  font-weight: bold;
 }
 </style>
