@@ -3,18 +3,18 @@
     <div class="container landing-img">
       <img alt="Vue logo" class="img-fluid" src="../assets/landing_page_logo.jpg">
     </div>
-    <HelloWorld txt="The life and times of a curious developer"/>
+    <TypeWriter txt="The life and times of a curious developer"/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import TypeWriter from '@/components/TypeWriter.vue'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    TypeWriter
   }
 }
 </script>
