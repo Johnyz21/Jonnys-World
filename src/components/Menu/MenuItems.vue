@@ -69,7 +69,6 @@ export default {
     color: black;
     text-decoration: none;
     background: linear-gradient(rgba(233,162,107,1), rgba(233,162,107,1)) bottom / 0 .2em no-repeat;
-    /*background: linear-gradient(rgba(249, 221, 78,1), rgba(249, 221, 78,1)) bottom / 0 .2em no-repeat;*/
     transition: 0.7s background-size
   }
 
