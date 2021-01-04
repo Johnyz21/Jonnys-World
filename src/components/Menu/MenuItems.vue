@@ -74,6 +74,11 @@ export default {
   .nav-link {
     color: black;
   }
+  .btn:focus,.btn:active {
+    outline: none !important;
+    box-shadow: none;
+  }
+
   .slide-fade-enter-active {
     transition: all .3s ease;
   }
