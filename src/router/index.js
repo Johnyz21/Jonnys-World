@@ -49,7 +49,7 @@ const routes = [
   },
   {
     path: '/data-science/linear-regression',
-    name: 'Linear Regression',
+    name: 'LinearRegression',
     component: () => import('../views/dataScience/LinearRegression.vue')
   }
 ]
