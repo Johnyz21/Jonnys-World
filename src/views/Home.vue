@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="container landing-img">
-      <img alt="Vue logo" class="img-fluid" src="../assets/landing_page_logo.jpg">
+      <img alt="Jonnys world" class="img-fluid" src="../assets/landing_page_logo.jpg">
     </div>
     <TypeWriter txt="The life and times of a curious developer"/>
   </div>
