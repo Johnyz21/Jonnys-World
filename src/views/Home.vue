@@ -1,7 +1,9 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Jonnys World!"/>
+    <div class="container landing-img">
+      <img alt="Vue logo" class="img-fluid" src="../assets/landing_page_logo.jpg">
+    </div>
+    <HelloWorld/>
   </div>
 </template>
 
@@ -16,3 +18,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .landing-img {
+    max-width: 500px;
+  }
+</style>
