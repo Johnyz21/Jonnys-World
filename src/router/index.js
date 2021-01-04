@@ -12,9 +12,14 @@ const routes = [
     component: Home
   },
   {
-    path: '/statistics',
+    path: '/journeys/statistics',
     name: 'Statistics',
-    component: () => import('../views/statistics/Statistics.vue')
+    component: () => import('../views/journeys/Statistics.vue')
+  },
+  {
+    path: '/journeys/data-science',
+    name: 'Data Science',
+    component: () => import('../views/journeys/DataScience.vue')
   },
   {
     path: '/statistics/deviations',
@@ -41,11 +46,6 @@ const routes = [
     path: '/sound',
     name: 'Sound',
     component: () => import('../views/sound/SoundChannels.vue')
-  },
-  {
-    path: '/data-science',
-    name: 'Data Science',
-    component: () => import('../views/dataScience/DataScience.vue')
   },
   {
     path: '/data-science/linear-regression',

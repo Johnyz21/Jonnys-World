@@ -42,7 +42,6 @@ export default {
         {
           id: 2,
           title: 'Statistics',
-          to: '/statistics',
           children: [
             {
               id: 2.1,
@@ -69,7 +68,6 @@ export default {
         {
           id: 3,
           title: 'Data Science',
-          to: '/data-science',
           children: [
             {
               id: 3.1,
@@ -87,6 +85,22 @@ export default {
           id: 5,
           title: 'Sound',
           to: '/sound'
+        },
+        {
+          id: 6,
+          title: 'Journeys',
+          children: [
+            {
+              id: 6.1,
+              title: 'Statistics',
+              to: '/journeys/statistics'
+            },
+            {
+              id: 6.2,
+              title: 'Data Science',
+              to: '/journeys/data-science'
+            }
+          ]
         }
       ]
     }
