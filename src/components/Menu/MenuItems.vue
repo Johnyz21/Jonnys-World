@@ -59,21 +59,24 @@ export default {
 
 <style scoped>
 
-  .bd-links .btn[aria-expanded="true"]::before {
-    transform: rotate(90deg);
-  }
-
-  .bd-links .btn::before {
-    width: 1.25em;
-    line-height: 0;
-    content: url('http://www.w3.org/2000/svg');
-    transition: transform 0.35s ease;
-    transform-origin: .5em 50%;
+  .nav-link.router-link-exact-active.router-link-active {
+    background: linear-gradient(rgba(233,162,107,1), rgba(233,162,107,1)) bottom / 0 .2em no-repeat;
+    background-size: 100% .2em;
+    font-weight: bold;
   }
 
   .nav-link {
     color: black;
+    text-decoration: none;
+    background: linear-gradient(rgba(233,162,107,1), rgba(233,162,107,1)) bottom / 0 .2em no-repeat;
+    /*background: linear-gradient(rgba(249, 221, 78,1), rgba(249, 221, 78,1)) bottom / 0 .2em no-repeat;*/
+    transition: 0.7s background-size
   }
+
+  .nav-link:hover {
+    background-size: 100% .2em;
+  }
+
   .btn:focus,.btn:active {
     outline: none !important;
     box-shadow: none;

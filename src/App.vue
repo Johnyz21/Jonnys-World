@@ -95,6 +95,7 @@ export default {
 </script>
 
 <style lang="scss">
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -103,8 +104,4 @@ export default {
   color: #2c3e50;
 }
 
-.router-link-active {
-  color: black;
-  font-weight: bold;
-}
 </style>
