@@ -1,15 +1,13 @@
 <template>
-  <div class="hello">
-      <div class="container-fluid">
-        <div class="row justify-content-center">
-          <div class="col-10 col-md-10 col-lg-8">
-              <h1>
-                {{message}}
-              </h1>
-            </div>
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-10 col-md-10 col-lg-8">
+          <h5>
+            {{message}}
+          </h5>
         </div>
-        <br>
-      </div>
+    </div>
+    <br>
   </div>
 </template>
 
@@ -17,14 +15,15 @@
 export default {
   name: 'HelloWorld',
   props: {
-    msg: String
+    txt: {
+      type: String
+    }
   },
   data () {
     return {
       i: 0,
       speed: 80,
       message: '',
-      txt: 'The life and times of when a developer gets bored',
       typeWriter: function () {
         if (this.i < this.txt.length) {
           this.message += this.txt.charAt(this.i)

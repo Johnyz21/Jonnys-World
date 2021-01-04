@@ -1,12 +1,12 @@
 import { shallowMount } from '@vue/test-utils'
-import HelloWorld from '@/components/HelloWorld.vue'
+import TypeWriter from '@/components/TypeWriter.vue'
 
-describe('HelloWorld.vue', () => {
-  it('renders props.msg when passed', () => {
-    const msg = 'new message'
-    const wrapper = shallowMount(HelloWorld, {
-      propsData: { msg }
+describe('TypeWriter.vue', () => {
+  it('renders props.txt when passed', () => {
+    const txt = 'new message'
+    const wrapper = shallowMount(TypeWriter, {
+      propsData: { txt }
     })
-    expect(wrapper.text()).toMatch(msg)
+    expect(wrapper.text()).toMatch(txt)
   })
 })
