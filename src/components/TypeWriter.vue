@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'TypeWriter',
   props: {
     txt: {
       type: String
