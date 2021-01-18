@@ -2,7 +2,7 @@
   <nav class="sidebar">
     <div v-if="isPanelOpen" class="col-2"></div>
     <transition name="slide">
-      <div v-if="isPanelOpen" >
+      <div v-if="isPanelOpen" class="sticky-top">
         <slot></slot>
       </div>
     </transition>
