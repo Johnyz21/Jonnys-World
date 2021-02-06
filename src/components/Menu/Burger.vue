@@ -40,6 +40,10 @@ export default {
     outline: 0;
   }
 
+  #burger {
+    padding-left: 13px;
+  }
+
   .burger-button {
     position: relative;
     height: 30px;
