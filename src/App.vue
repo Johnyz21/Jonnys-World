@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="container-fluid">
-      <div class="row sticky-top">
+      <div class="row fixed-top">
         <Burger></Burger>
       </div>
       <div class="row">

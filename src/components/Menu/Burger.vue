@@ -41,7 +41,7 @@ export default {
   }
 
   #burger {
-    padding-left: 13px;
+    padding-left: 28px;
   }
 
   .burger-button {
